@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="538.0" maxWidth="785.0" minHeight="538.0" minWidth="785.0" prefHeight="538.0" prefWidth="785.0" style="-fx-background-color: #F5F5F5;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManipulationController">
+   <children>
+      <TabPane prefHeight="494.0" prefWidth="785.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <tabs>
+          <Tab text="Voitures">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="476.0" prefWidth="838.0">
+                     <children>
+                        <HBox layoutX="17.0" layoutY="23.0" prefHeight="27.0" prefWidth="745.0" AnchorPane.bottomAnchor="415.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="23.0">
+                           <children>
+                              <JFXTextField fx:id="refProd" editable="true" labelFloat="true" prefHeight="25.0" prefWidth="107.0" promptText="Reference">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="nameProd" labelFloat="true" prefHeight="25.0" prefWidth="205.0" promptText="Matricule">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="price" labelFloat="true" prefHeight="25.0" prefWidth="121.0" promptText="CoutLocation">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="quantity" labelFloat="true" prefHeight="25.0" prefWidth="106.0" promptText="Quantite">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </JFXTextField>
+                              <JFXComboBox fx:id="categorieCB" prefHeight="25.0" prefWidth="167.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </JFXComboBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="117.0" layoutY="407.0" prefHeight="26.0" prefWidth="496.0" AnchorPane.bottomAnchor="32.0" AnchorPane.rightAnchor="187.0">
+                           <children>
+                              <JFXButton fx:id="findProd" buttonType="RAISED" onMouseClicked="#findProductByProductName" style="-fx-background-color: #0c902f;" text="Find" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="50.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="deleteProd" buttonType="RAISED" onMouseClicked="#deleteProduct" style="-fx-background-color: #cc0000;" text="Delete" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="150.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="commitProd" buttonType="RAISED" onMouseClicked="#updateOrInsertProduct" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #0078D7;" text="Commit" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="40.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="cancelProd" buttonType="RAISED" onMouseClicked="#cancelProduct" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #0078D7;" text="Cancel" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="tableProd" layoutX="20.0" layoutY="74.0" onMouseClicked="#selectRowProds" prefHeight="316.0" prefWidth="748.0">
+                          <columns>
+                            <TableColumn fx:id="refProdColmn" prefWidth="117.0" text="Reference" />
+                            <TableColumn fx:id="nameProdColmn" prefWidth="214.0" text="Matricule" />
+                              <TableColumn fx:id="priceProdColmn" prefWidth="131.0" text="CoutLocation" />
+                              <TableColumn fx:id="qtProdColmn" prefWidth="117.0" text="Quantite" />
+                              <TableColumn fx:id="catProdColmn" prefWidth="166.0" text="Categorie" />
+                          </columns>
+                        </TableView>
+                     </children>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Categories">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableCat" layoutX="46.0" layoutY="44.0" onMouseClicked="#selectRowCat" prefHeight="311.0" prefWidth="289.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="75.0">
+                          <columns>
+                            <TableColumn fx:id="codeCatColmn" minWidth="70.0" prefWidth="128.0" text="Code" />
+                            <TableColumn fx:id="nameCatColmn" minWidth="100.0" prefWidth="158.0" text="Name" />
+                          </columns>
+                        </TableView>
+                        <HBox layoutX="40.0" layoutY="38.0" prefHeight="29.0" prefWidth="295.0" AnchorPane.bottomAnchor="410.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="450.0" AnchorPane.topAnchor="35.0">
+                           <children>
+                              <JFXTextField fx:id="codeCat" labelFloat="true" prefHeight="25.0" prefWidth="110.0" promptText="Code">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="nameCat" labelFloat="true" prefHeight="25.0" prefWidth="167.0" promptText="Name" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="39.0" layoutY="410.0" prefHeight="26.0" prefWidth="296.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="39.0">
+                           <children>
+                              <JFXButton fx:id="deleteCat" buttonType="RAISED" onMouseClicked="#deleteCategorie" prefHeight="25.0" prefWidth="70.0" ripplerFill="#bc4040" style="-fx-background-color: #cc0000;" text="Delete" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="50.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="commitCat" buttonType="RAISED" onMouseClicked="#commitModifOrInsertCategorie" prefHeight="25.0" prefWidth="68.0" ripplerFill="#52877a" style="-fx-background-color: #0078D7;" text="Commit" textFill="WHITE" textOverrun="LEADING_ELLIPSIS">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="40.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="cancelCat" buttonType="RAISED" onMouseClicked="#cancelModifCat" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: #0078D7;" text="Cancel" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                        <Separator layoutX="370.0" layoutY="14.0" orientation="VERTICAL" prefHeight="454.0" prefWidth="12.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="370.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="10.0" />
+                        <TableView fx:id="tableProdByCat" layoutX="413.0" layoutY="40.0" prefHeight="397.0" prefWidth="336.0" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="40.0">
+                           <columns>
+                              <TableColumn fx:id="refProdCatColmn" minWidth="70.0" prefWidth="100.0" text="Ref Prod" />
+                              <TableColumn fx:id="nameProdCatColmn" minWidth="150.0" prefWidth="233.0" text="Name" />
+                           </columns>
+                        </TableView>
+                     </children>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <JFXButton buttonType="RAISED" layoutX="665.0" layoutY="9.0" onMouseClicked="#retour" prefHeight="30.0" prefWidth="85.0" ripplerFill="#2f827a" style="-fx-background-color: #2f827a;" text="Retour" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
